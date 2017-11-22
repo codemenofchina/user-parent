@@ -16,6 +16,11 @@
             <artifactId>user-service</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>com.gimefive.user</groupId>
+            <artifactId>user-provider</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
         <!--common start -->
         <dependency>
             <groupId>com.google.guava</groupId>
