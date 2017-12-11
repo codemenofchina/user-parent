@@ -7,6 +7,8 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="user-api" />
+        <module name="user-cache" />
+        <module name="user-common" />
         <module name="user-consumer" />
         <module name="user-dao" />
         <module name="user-provider" />
@@ -16,6 +18,8 @@
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
       <module name="user-api" target="1.8" />
+      <module name="user-cache" target="1.8" />
+      <module name="user-common" target="1.8" />
       <module name="user-consumer" target="1.8" />
       <module name="user-dao" target="1.8" />
       <module name="user-parent" target="1.8" />

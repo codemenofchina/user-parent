@@ -44,7 +44,7 @@
 
 
 
-    <context:component-scan base-package="com.gimefive.user.web" />
+    <context:component-scan base-package="com.gimefive.user.web.controller" />
     <import resource="classpath*:spring-service.xml" />
     <import resource="classpath*:spring-dao.xml" />
     <import resource="classpath*:dubbo-provider.xml" />

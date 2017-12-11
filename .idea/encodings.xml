@@ -2,6 +2,8 @@
 <project version="4">
   <component name="Encoding" defaultCharsetForPropertiesFiles="GBK">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/user-cache" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/user-common" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/user-dao" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/user-rpc" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/user-rpc/user-api" charset="UTF-8" />

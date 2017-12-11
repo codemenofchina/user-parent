@@ -9,6 +9,6 @@ public class UserInfoProvider implements UserInfoApi {
     UserDao userDao;
     @Override
     public String getUserInfo(String name) {
-        return "dubbo " + userDao.getUserInfo(name);
+        return "dubbo " + userDao.queryUserByUserName(name).toString();
     }
 }

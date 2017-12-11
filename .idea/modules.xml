@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/user-rpc/user-api/user-api.iml" filepath="$PROJECT_DIR$/user-rpc/user-api/user-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/user-cache/user-cache.iml" filepath="$PROJECT_DIR$/user-cache/user-cache.iml" />
+      <module fileurl="file://$PROJECT_DIR$/user-common/user-common.iml" filepath="$PROJECT_DIR$/user-common/user-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/user-rpc/user-consumer/user-consumer.iml" filepath="$PROJECT_DIR$/user-rpc/user-consumer/user-consumer.iml" />
       <module fileurl="file://$PROJECT_DIR$/user-dao/user-dao.iml" filepath="$PROJECT_DIR$/user-dao/user-dao.iml" />
       <module fileurl="file://$PROJECT_DIR$/user-parent.iml" filepath="$PROJECT_DIR$/user-parent.iml" />
