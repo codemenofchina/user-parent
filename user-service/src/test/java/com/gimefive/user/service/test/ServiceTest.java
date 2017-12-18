@@ -20,6 +20,6 @@ public class ServiceTest {
     @Test
     public void testAspect(){
         List<User> list = userService.queryAll(0, 10);
-        System.out.println(list==null);
+        System.out.println(list.size());
     }
 }

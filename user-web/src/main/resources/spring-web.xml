@@ -14,6 +14,10 @@
        http://www.springframework.org/schema/aop
        http://www.springframework.org/schema/aop/spring-aop.xsd">
 
+    <import resource="classpath*:spring-service.xml" />
+    <import resource="classpath*:spring-dao.xml" />
+    <import resource="classpath*:dubbo-provider.xml" />
+
     <!-- 启动对@AspectJ注解的支持 -->
     <aop:aspectj-autoproxy proxy-target-class="true" />
 
@@ -42,10 +46,17 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
-
-
     <context:component-scan base-package="com.gimefive.user.web.controller" />
-    <import resource="classpath*:spring-service.xml" />
-    <import resource="classpath*:spring-dao.xml" />
-    <import resource="classpath*:dubbo-provider.xml" />
+
+    <!--配置拦截器, 多个拦截器,顺序执行 -->
+    <mvc:interceptors>
+
+        <mvc:interceptor>
+            <!-- 匹配的是url路径， 如果不配置或/**,将拦截所有的Controller -->
+            <mvc:mapping path="/"/>
+            <mvc:mapping path="/user/**" />
+            <bean class="com.gimefive.user.web.interceptor.MyInterceptor" />
+        </mvc:interceptor>
+        <!-- 当设置多个拦截器时，先按顺序调用preHandle方法，然后逆序调用每个拦截器的postHandle和afterCompletion方法 -->
+    </mvc:interceptors>
 </beans>

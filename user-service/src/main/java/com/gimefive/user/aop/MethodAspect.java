@@ -1,32 +1,50 @@
 package com.gimefive.user.aop;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.After;
-import org.aspectj.lang.annotation.Around;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.Signature;
+import org.aspectj.lang.annotation.*;
+import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.stereotype.Component;
+
+import java.lang.reflect.Method;
 
 @Component
 @Aspect
 public class MethodAspect {
 
-    @Before("execution(* com.gimefive.user.service.*.*(..))")
-    public void beforeMethod() {
+    @Pointcut("execution(* com.gimefive.user.service.*.*(..))")
+    public void aopMethod() {}
 
-//        System.out.println(pjp.getTarget().toString());
+    @Before("aopMethod()")
+    public void beforeMethod(JoinPoint joinPoint) {
         System.out.println("before");
+        for (Object obj : joinPoint.getArgs()) {
+            System.out.println(obj);
+        }
+        Signature signature = joinPoint.getSignature();
+        System.out.println(signature.getName());
+        MethodSignature methodSignature = (MethodSignature)signature;
+        Method targetMethod = methodSignature.getMethod();
+        System.out.println(targetMethod.getName());
     }
 
-    @After("execution(* com.gimefive.user.service.*.*(..))")
+    @After("aopMethod()")
     public void afterMethod() {
-//        System.out.println(pjp.getTarget().toString());
         System.out.println("after");
     }
 
-    @Around("execution(* com.gimefive.user.service.*.*(..))")
-    public void aroundMethod(ProceedingJoinPoint pjp) {
-        System.out.println(pjp.getTarget().toString());
+    @Around("aopMethod()")
+    public Object aroundMethod(ProceedingJoinPoint pjp) throws Throwable {
         System.out.println("around");
+        for (Object obj : pjp.getArgs()) {
+            System.out.println(obj);
+        }
+        Signature signature = pjp.getSignature();
+        System.out.println(signature.getName());
+        MethodSignature methodSignature = (MethodSignature)signature;
+        Method targetMethod = methodSignature.getMethod();
+        System.out.println(targetMethod.getName());
+        return pjp.proceed();
     }
 }
