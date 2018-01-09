@@ -93,4 +93,44 @@
     <bean id="myMessageDelegate1" class="com.gimefive.user.cache.redis.MyMessageDelegate" />
     <bean id="myMessageDelegate2" class="com.gimefive.user.cache.redis.MyMessageDelegate" />
     <bean id="myMessageDelegate3" class="com.gimefive.user.cache.redis.MyMessageDelegate" />
+
+    <!--redis-cluster配置-->
+    <bean id="jedisCluster" class="redis.clients.jedis.JedisCluster">
+        <!--此处用的是jedis的其中一个构造方法-->
+        <!--JedisCluster(Set<HostAndPort> jedisClusterNode, int connectionTimeout, int soTimeout, int maxAttempts,
+         String password, final GenericObjectPoolConfig poolConfig)-->
+        <constructor-arg index="0">
+            <set>
+                <bean class="redis.clients.jedis.HostAndPort">
+                    <constructor-arg index="0" value="10.2.72.115" />
+                    <constructor-arg index="1" value="7000" />
+                </bean>
+                <bean class="redis.clients.jedis.HostAndPort">
+                    <constructor-arg index="0" value="10.2.72.115" />
+                    <constructor-arg index="1" value="7001" />
+                </bean>
+                <bean class="redis.clients.jedis.HostAndPort">
+                    <constructor-arg index="0" value="10.2.72.115" />
+                    <constructor-arg index="1" value="7002" />
+                </bean>
+                <bean class="redis.clients.jedis.HostAndPort">
+                    <constructor-arg index="0" value="10.2.72.115" />
+                    <constructor-arg index="1" value="7003" />
+                </bean>
+                <bean class="redis.clients.jedis.HostAndPort">
+                    <constructor-arg index="0" value="10.2.72.115" />
+                    <constructor-arg index="1" value="7004" />
+                </bean>
+                <bean class="redis.clients.jedis.HostAndPort">
+                    <constructor-arg index="0" value="10.2.72.115" />
+                    <constructor-arg index="1" value="7005" />
+                </bean>
+            </set>
+        </constructor-arg>
+        <constructor-arg index="1" value="5000" />
+        <constructor-arg index="2" value="5000" />
+        <constructor-arg index="3" value="2" />
+        <constructor-arg index="4" value="root" />
+        <constructor-arg index="5" ref="poolConfig" />
+    </bean>
 </beans>

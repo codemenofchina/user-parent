@@ -3,6 +3,12 @@ package com.gimefive.user.cache.redis;
 import java.io.Serializable;
 import java.util.Map;
 
+/**
+ * 消息订阅代表接口实现类
+ *
+ * @author
+ * @create 2017-11-09 下午2:12
+ **/
 public class MyMessageDelegate implements  MessageDelegate {
     @Override
     public void handleMessage(String message) {
