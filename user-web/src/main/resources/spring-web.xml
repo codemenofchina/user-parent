@@ -17,6 +17,7 @@
     <import resource="classpath*:spring-service.xml" />
     <import resource="classpath*:spring-dao.xml" />
     <import resource="classpath*:dubbo-provider.xml" />
+    <import resource="classpath*:spring-cache.xml" />
 
     <!-- 启动对@AspectJ注解的支持 -->
     <aop:aspectj-autoproxy proxy-target-class="true" />
